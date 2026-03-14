@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فلاحتي - المنصة الفلاحية المتكاملة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">فلاح<span>تي</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="jobs.html" class="nav-link">الوظائف</a>
+                <a href="#" class="nav-link">عن المنصة</a>
+                <a href="#" class="nav-link">اتصل بنا</a>
+                <a href="login.html" class="btn btn-outline" style="color: white; border-color: white;">دخول</a>
+                <a href="register.html" class="btn btn-secondary">تسجيل</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <h1 class="search-title">ابحث عن الفرص أو الكفاءات في عالم الفلاحة</h1>
+                <form class="search-form" action="jobs.html">
+                    <select class="search-input" style="flex: 0.3;">
+                        <option value="">كل الولايات</option>
+                        <option value="algiers">الجزائر العاصمة</option>
+                        <option value="oran">وهران</option>
+                        <option value="constantine">قسنطينة</option>
+                        <option value="annaba">عنابة</option>
+                        <option value="blida">البليدة</option>
+                        <option value="setif">سطيف</option>
+                        <option value="tizi-ouzou">تيزي وزو</option>
+                        <option value="bejaia">بجاية</option>
+                        <option value="chlef">الشلف</option>
+                        <option value="biskra">بسكرة</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="ماذا تبحث؟ (وظيفة، عامل، مهندس، آلة زراعية...)">
+                    <button type="submit" class="btn btn-secondary" style="padding: 15px 40px;">🔍 بحث</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">تصفح حسب الفئة</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🧑‍🌾</div>
+                    <div class="category-title">عمال موسميون</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👨‍💻</div>
+                    <div class="category-title">مهندسون فلاحيون</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🚜</div>
+                    <div class="category-title">آلات زراعية</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌾</div>
+                    <div class="category-title">محاصيل وحصاد</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🐄</div>
+                    <div class="category-title">تربية المواشي</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <div class="category-title">صيانة وإصلاح</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💧</div>
+                    <div class="category-title">أنظمة الري</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏭</div>
+                    <div class="category-title">صناعات تحويلية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="margin-bottom: 0;">فرص عمل مميزة</h2>
+                <a href="jobs.html" class="view-all">عرض الكل ←</a>
+            </div>
+            
+            <div class="jobs-grid">
+                <!-- Job Card 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">مطلوب عمال لجني الزيتون</h3>
+                        <div class="rating">⭐⭐⭐⭐⭐ <span>4.8 (15 تقييم)</span></div>
+                    </div>
+                    <div class="company-name">🏢 مزرعة الفلاح الأبيض</div>
+                    <div class="job-location">📍 تيزي وزو، قرية إيفليسن</div>
+                    <div class="job-tags">
+                        <span class="tag">موسمي</span>
+                        <span class="tag highlight">عاجل</span>
+                        <span class="tag">يومي</span>
+                    </div>
+                    <p style="color: #757575; margin-bottom: 15px;">مزرعة متخصصة في إنتاج زيت الزيتون تبحث عن عمال موسميين لجني المحصول...</p>
+                    <div class="job-footer">
+                        <div class="price">800 <span>دج/اليوم</span></div>
+                        <a href="job-details.html" class="btn btn-outline" style="padding: 8px 20px;">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">مهندس ري للمشاريع الكبرى</h3>
+                        <div class="rating">⭐⭐⭐⭐ <span>4.5 (8 تقييم)</span></div>
+                    </div>
+                    <div class="company-name">🏢 شركة الخيرات للاستثمار الفلاحي</div>
+                    <div class="job-location">📍 غرداية، المنطقة الصناعية</div>
+                    <div class="job-tags">
+                        <span class="tag">دوام كامل</span>
+                        <span class="tag">خبرة</span>
+                        <span class="tag">سكن</span>
+                    </div>
+                    <p style="color: #757575; margin-bottom: 15px;">مطلوب مهندس ري ذو خبرة للإشراف على مشاريع الري الحديث في مزارع النخيل...</p>
+                    <div class="job-footer">
+                        <div class="price">1500 <span>دج/اليوم</span></div>
+                        <a href="job-details.html" class="btn btn-outline" style="padding: 8px 20px;">عرض التفاصيل</a>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">سائق آلات زراعية (جرارات)</h3>
+                        <div class="rating">⭐⭐⭐⭐⭐ <span>5.0 (12 تقييم)</span></div>
+                    </div>
+                    <div class="company-name">🏢 مؤسسة الفلاحة الحديثة</div>
+                    <div class="job-location">📍 الشلف، سيدي عابد</div>
+                    <div class="job-tags">
+                        <span class="tag">موسمي</span>
+                        <span class="tag">خبرة</span>
+                        <span class="tag">رخصة</span>
+                    </div>
+                    <p style="color: #757575; margin-bottom: 15px;">مطلوب سائقين للجرارات والآلات الزراعية للموسم الفلاحي الجديد...</p>
+                    <div class="job-footer">
+                        <div class="price">1000 <span>دج/اليوم</span></div>
+                        <a href="job-details.html" class="btn btn-outline" style="padding: 8px 20px;">عرض التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">لماذا فلاحتي؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">تواصل مباشر</h3>
+                    <p class="feature-description">تواصل مباشر بين أصحاب العمل والباحثين دون وسطاء</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3 class="feature-title">مصداقية عالية</h3>
+                    <p class="feature-description">نظام تقييمات ومراجعات يضمن الشفافية للجميع</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">سرعة في الإنجاز</h3>
+                    <p class="feature-description">أسهل وأسرع طريقة للعثور على الفرص المناسبة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌾</div>
+                    <h3 class="feature-title">متخصصون في الفلاحة</h3>
+                    <p class="feature-description">أول منصة جزائرية متخصصة في المجال الفلاحي</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: #2E7D32; color: white; padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 20px;">هل أنت صاحب مزرعة أو مشروع فلاحي؟</h2>
+            <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">انشر إعلانك الآن وابحث عن الكفاءات التي تحتاجها</p>
+            <a href="post-job.html" class="btn btn-secondary" style="font-size: 20px; padding: 15px 50px;">📢 نشر إعلان وظيفة</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">فلاحتي</h3>
+                    <p style="color: #F5F5F5; line-height: 1.8;">أول منصة جزائرية متخصصة في الربط بين أصحاب العمل والباحثين عن فرص في القطاع الفلاحي.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">عن المنصة</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">فيسبوك</a></li>
+                        <li><a href="#">تويتر</a></li>
+                        <li><a href="#">لينكد إن</a></li>
+                        <li><a href="#">إنستغرام</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li>📞 0550 12 34 56</li>
+                        <li>✉️ contact@fellahaty.dz</li>
+                        <li>📍 الجزائر العاصمة</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 فلاحتي - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

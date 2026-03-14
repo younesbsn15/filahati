@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن المنصة - فلاحتي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* تنسيقات إضافية لصفحة عن المنصة */
+        .about-hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '🌾';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            left: -50px;
+            bottom: -50px;
+            transform: rotate(15deg);
+        }
+        
+        .about-hero::after {
+            content: '🚜';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            right: -30px;
+            top: -30px;
+            transform: rotate(-10deg);
+        }
+        
+        .about-hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mission-vision {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .mission-card, .vision-card {
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-bottom: 5px solid #2E7D32;
+        }
+        
+        .vision-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #F5F5F5 100%);
+            border-bottom: 5px solid #FFB300;
+        }
+        
+        .card-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 32px;
+            color: #212121;
+            margin-bottom: 20px;
+        }
+        
+        .card-text {
+            color: #757575;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        .values-section {
+            padding: 80px 0;
+            background: #F5F5F5;
+        }
+        
+        .section-title-center {
+            text-align: center;
+            color: #2E7D32;
+            font-size: 42px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title-center::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #FFB300;
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 24px;
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: #757575;
+            line-height: 1.8;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFB300;
+        }
+        
+        .stat-label {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        
+        .team-card {
+            background: #F5F5F5;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.15);
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #2E7D32 0%, #FFB300 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-size: 22px;
+            color: #212121;
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: #2E7D32;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            color: #757575;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .story-section {
+            padding: 80px 0;
+            background: #F9F9F9;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .story-title {
+            font-size: 36px;
+            color: #2E7D32;
+            margin-bottom: 30px;
+        }
+        
+        .story-text {
+            color: #212121;
+            line-height: 2;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .story-quote {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            font-size: 24px;
+            color: #2E7D32;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .story-quote::before {
+            content: '"';
+            font-size: 120px;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            opacity: 0.1;
+            color: #2E7D32;
+        }
+        
+        .story-quote::after {
+            content: '"';
+            font-size: 120px;
+            position: absolute;
+            bottom: -60px;
+            left: 20px;
+            opacity: 0.1;
+            color: #2E7D32;
+        }
+        
+        .partners-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        
+        .partner-item {
+            background: #F5F5F5;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #212121;
+            transition: all 0.3s;
+        }
+        
+        .partner-item:hover {
+            background: #2E7D32;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
+            color: #212121;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button-primary {
+            background: #212121;
+            color: white;
+        }
+        
+        .cta-button-primary:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button-secondary {
+            background: white;
+            color: #212121;
+        }
+        
+        .cta-button-secondary:hover {
+            background: #F5F5F5;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+            
+            .about-hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-hero p {
+                font-size: 18px;
+                padding: 0 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">فلاح<span>تي</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="jobs.html" class="nav-link">الوظائف</a>
+                <a href="about.html" class="nav-link" style="color: #FFB300;">عن المنصة</a>
+                <a href="contact.html" class="nav-link">اتصل بنا</a>
+                <a href="login.html" class="btn btn-outline" style="color: white; border-color: white;">دخول</a>
+                <a href="register.html" class="btn btn-secondary">تسجيل</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>منصة فلاحتي</h1>
+            <p>نحو مستقبل فلاحي أفضل.. منصة جزائرية تربط بين الكفاءات والفرص في القطاع الفلاحي</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="mission-vision-grid">
+            <div class="mission-card">
+                <div class="card-icon">🎯</div>
+                <h2 class="card-title">رسالتنا</h2>
+                <p class="card-text">
+                    تمكين الفاعلين في القطاع الفلاحي الجزائري من التواصل الفعال، 
+                    وتوفير فرص عمل متكافئة، والمساهمة في تطوير الكفاءات المحلية 
+                    ودعم الاقتصاد الفلاحي الوطني.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="card-icon">👁️</div>
+                <h2 class="card-title">رؤيتنا</h2>
+                <p class="card-text">
+                    أن نكون المنصة الرائدة في العالم العربي في مجال الوساطة الفلاحية، 
+                    وأن نساهم في تحقيق الأمن الغذائي وتطوير الاستثمار الفلاحي 
+                    من خلال ربط الكفاءات بالفرص المناسبة.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-container">
+            <h2 class="story-title">قصة فلاحتي</h2>
+            <p class="story-text">
+                انطلقت فكرة "فلاحتي" في ربيع 2023، عندما لاحظ المؤسسون الفجوة الكبيرة 
+                بين أصحاب المزارع والمشاريع الفلاحية الذين يبحثون عن عمال وكفاءات، 
+                وبين آلاف الشباب الجزائري الذين يمتلكون المهارات والخبرات ولكنهم يجدون 
+                صعوبة في الوصول إلى الفرص المناسبة.
+            </p>
+            <p class="story-text">
+                قررنا إنشاء منصة تجمع الجميع في مكان واحد، تسهل التواصل، وتضمن الشفافية، 
+                وتوفر بيئة موثوقة للتعاملات. واليوم، بعد عام واحد فقط، نفخر بأن أكثر من 
+                10,000 مستخدم و 500 مزرعة ومؤسسة فلاحية انضمت إلينا، وتم توظيف أكثر من 
+                2,500 عامل من خلال المنصة.
+            </p>
+            <div class="story-quote">
+                "معاً نبني قطاعاً فلاحياً قوياً ومستداماً في الجزائر"
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title-center">قيمنا الأساسية</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">المصداقية</h3>
+                    <p class="value-description">نضمن الشفافية في جميع التعاملات من خلال نظام تقييمات ومراجعات موثوق</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⚖️</div>
+                    <h3 class="value-title">العدالة</h3>
+                    <p class="value-description">فرص متكافئة للجميع دون تمييز، ونضمن حقوق جميع الأطراف</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3 class="value-title">الابتكار</h3>
+                    <p class="value-description">نستخدم أحدث التقنيات لتسهيل البحث عن الفرص والتواصل</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">الاستدامة</h3>
+                    <p class="value-description">نساهم في تطوير قطاع فلاحي مستدام يحترم البيئة والمجتمع</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🤲</div>
+                    <h3 class="value-title">المسؤولية المجتمعية</h3>
+                    <p class="value-description">ندعم المجتمعات المحلية ونشجع الشباب على العمل في القطاع الفلاحي</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🔗</div>
+                    <h3 class="value-title">التواصل</div>
+                    <p class="value-description">نبني جسور تواصل قوية بين جميع الفاعلين في القطاع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">مستخدم نشط</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">مزرعة ومؤسسة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">فرصة عمل تم توفيرها</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">48</div>
+                    <div class="stat-label">ولاية جزائرية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title-center">فريقنا المؤسس</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👨‍🌾</div>
+                    <div class="team-info">
+                        <h3 class="team-name">أحمد بن علي</h3>
+                        <div class="team-position">المؤسس والرئيس التنفيذي</div>
+                        <p class="team-bio">مهندس فلاحي وخبير في التنمية الريفية، خبرة 15 سنة في مجال الاستثمار الفلاحي</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">👩‍💻</div>
+                    <div class="team-info">
+                        <h3 class="team-name">سارة بوزيد</h3>
+                        <div class="team-position">مديرة التطوير التقني</div>
+                        <p class="team-bio">مهندسة برمجيات، خبرة 10 سنوات في تطوير المنصات الرقمية</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">👨‍🔧</div>
+                    <div class="team-info">
+                        <h3 class="team-name">علي حسني</h3>
+                        <div class="team-position">مدير العمليات</div>
+                        <p class="team-bio">خبير في إدارة المشاريع الفلاحية وتطوير الأعمال</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title-center">شركاء النجاح</h2>
+            <div class="partners-grid">
+                <div class="partner-item">وزارة الفلاحة</div>
+                <div class="partner-item">الاتحاد الفلاحي</div>
+                <div class="partner-item">بنك الفلاحة</div>
+                <div class="partner-item">معهد الفلاحة</div>
+                <div class="partner-item">ديوان الحبوب</div>
+                <div class="partner-item">مجمع الفواكه</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">انضم إلى عائلة فلاحتي اليوم!</h2>
+            <p class="cta-text">سواء كنت صاحب مزرعة تبحث عن كفاءات، أو عامل تبحث عن فرصة عمل مناسبة</p>
+            <div class="cta-buttons">
+                <a href="register.html" class="cta-button cta-button-primary">إنشاء حساب جديد</a>
+                <a href="contact.html" class="cta-button cta-button-secondary">اتصل بنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">فلاحتي</h3>
+                    <p style="color: #F5F5F5; line-height: 1.8;">أول منصة جزائرية متخصصة في الربط بين أصحاب العمل والباحثين عن فرص في القطاع الفلاحي.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">عن المنصة</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">فيسبوك</a></li>
+                        <li><a href="#">تويتر</a></li>
+                        <li><a href="#">لينكد إن</a></li>
+                        <li><a href="#">إنستغرام</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li>📞 0550 12 34 56</li>
+                        <li>✉️ contact@fellahaty.dz</li>
+                        <li>📍 الجزائر العاصمة</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 فلاحتي - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

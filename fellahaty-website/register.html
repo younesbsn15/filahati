@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - فلاحتي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* تنسيقات إضافية لصفحة التسجيل */
+        .register-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(46, 125, 50, 0.15);
+        }
+        
+        .register-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .register-header h1 {
+            color: #2E7D32;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        
+        .register-header p {
+            color: #757575;
+            font-size: 16px;
+        }
+        
+        .user-type-selector {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #F5F5F5;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        
+        .user-type-option {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .user-type-option:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .user-type-option.active {
+            background: white;
+            border-color: #2E7D32;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
+        }
+        
+        .user-type-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .user-type-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 5px;
+        }
+        
+        .user-type-desc {
+            color: #757575;
+            font-size: 14px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .terms {
+            background: #F5F5F5;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            display: flex;
+            align-items: start;
+            gap: 10px;
+        }
+        
+        .terms input[type="checkbox"] {
+            margin-top: 5px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .terms label {
+            color: #212121;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        .terms a {
+            color: #2E7D32;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .password-requirements {
+            background: #E8F5E9;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #2E7D32;
+        }
+        
+        .password-requirements ul {
+            margin-top: 10px;
+            padding-right: 20px;
+        }
+        
+        .password-requirements li {
+            margin-bottom: 5px;
+            color: #212121;
+        }
+        
+        .password-requirements li.valid {
+            color: #2E7D32;
+        }
+        
+        .social-register {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-button {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .social-button:hover {
+            background: #F5F5F5;
+            border-color: #757575;
+        }
+        
+        .social-button.facebook {
+            color: #1877F2;
+        }
+        
+        .social-button.google {
+            color: #DB4437;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #757575;
+            margin: 30px 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .divider span {
+            padding: 0 10px;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: #E0E0E0;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 33%;
+            background: #2E7D32;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            color: #757575;
+            font-size: 14px;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .step.active {
+            color: #2E7D32;
+            font-weight: 600;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #E0E0E0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+            color: #757575;
+        }
+        
+        .step.active .step-number {
+            background: #2E7D32;
+            color: white;
+        }
+        
+        .location-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .location-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-type-selector {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">فلاح<span>تي</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="jobs.html" class="nav-link">الوظائف</a>
+                <a href="#" class="nav-link">عن المنصة</a>
+                <a href="#" class="nav-link">اتصل بنا</a>
+                <a href="login.html" class="btn btn-outline" style="color: white; border-color: white;">دخول</a>
+                <a href="register.html" class="btn btn-secondary">تسجيل</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Form -->
+    <div class="register-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div>نوع الحساب</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>المعلومات الشخصية</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>تفاصيل المهنة</div>
+            </div>
+        </div>
+        
+        <div class="register-header">
+            <h1>إنشاء حساب جديد</h1>
+            <p>انضم إلى منصة فلاحتي وابدأ رحلتك في العالم الفلاحي</p>
+        </div>
+        
+        <form>
+            <!-- User Type Selection -->
+            <div class="user-type-selector">
+                <div class="user-type-option active" onclick="selectUserType('farmer')">
+                    <div class="user-type-icon">👨‍🌾</div>
+                    <div class="user-type-title">صاحب عمل / مزرعة</div>
+                    <div class="user-type-desc">أبحث عن عمال وكفاءات لمشاريعي الفلاحية</div>
+                </div>
+                
+                <div class="user-type-option" onclick="selectUserType('worker')">
+                    <div class="user-type-icon">🧑‍🌾</div>
+                    <div class="user-type-title">باحث عن عمل</div>
+                    <div class="user-type-desc">أبحث عن فرص عمل في المجال الفلاحي</div>
+                </div>
+            </div>
+            
+            <!-- Personal Information -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input type="text" class="form-input" placeholder="مثال: أحمد بن علي" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">رقم الهاتف</label>
+                    <input type="tel" class="form-input" placeholder="05XX XX XX XX" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">البريد الإلكتروني</label>
+                    <input type="email" class="form-input" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">تاريخ الميلاد</label>
+                    <input type="date" class="form-input" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">كلمة المرور</label>
+                    <input type="password" class="form-input" placeholder="********" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">تأكيد كلمة المرور</label>
+                    <input type="password" class="form-input" placeholder="********" required>
+                </div>
+            </div>
+            
+            <!-- Password Requirements -->
+            <div class="password-requirements">
+                <strong>🔒 متطلبات كلمة المرور:</strong>
+                <ul>
+                    <li class="valid">✓ 8 أحرف على الأقل</li>
+                    <li>○ حرف كبير واحد على الأقل</li>
+                    <li>○ رقم واحد على الأقل</li>
+                    <li>○ رمز خاص واحد على الأقل (!@#$%)</li>
+                </ul>
+            </div>
+            
+            <!-- Location Information -->
+            <h3 style="color: #2E7D32; margin: 30px 0 20px;">📍 معلومات الموقع</h3>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">الولاية</label>
+                    <select class="form-select" required>
+                        <option value="">اختر ولايتك</option>
+                        <option value="algiers">الجزائر العاصمة</option>
+                        <option value="oran">وهران</option>
+                        <option value="constantine">قسنطينة</option>
+                        <option value="annaba">عنابة</option>
+                        <option value="blida">البليدة</option>
+                        <option value="setif">سطيف</option>
+                        <option value="tizi-ouzou">تيزي وزو</option>
+                        <option value="bejaia">بجاية</option>
+                        <option value="biskra">بسكرة</option>
+                        <option value="adrar">أدرار</option>
+                        <option value="laghouat">الأغواط</option>
+                        <option value="oum-bouaghi">أم البواقي</option>
+                        <option value="batna">باتنة</option>
+                        <option value="bechar">بشار</option>
+                        <option value="bouira">البويرة</option>
+                        <option value="tamanrasset">تمنراست</option>
+                        <option value="tebessa">تبسة</option>
+                        <option value="tiaret">تيارت</option>
+                        <option value="chlef">الشلف</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">البلدية / المنطقة</label>
+                    <input type="text" class="form-input" placeholder="مثال: بلدية بني يونس" required>
+                </div>
+            </div>
+            
+            <!-- Farmer Specific Fields -->
+            <div id="farmerFields">
+                <h3 style="color: #2E7D32; margin: 30px 0 20px;">🏢 معلومات المزرعة / المؤسسة</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">اسم المزرعة / المؤسسة</label>
+                        <input type="text" class="form-input" placeholder="مثال: مزرعة الفلاح الأبيض">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">نشاط المؤسسة</label>
+                        <select class="form-select">
+                            <option value="">اختر النشاط</option>
+                            <option value="olives">زراعة الزيتون</option>
+                            <option value="dates">نخيل وتمور</option>
+                            <option value="vegetables">خضروات وفواكه</option>
+                            <option value="livestock">ثروة حيوانية</option>
+                            <option value="poultry">دواجن</option>
+                            <option value="beekeeping">تربية النحل</option>
+                            <option value="mixed">نشاط مختلط</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">حجم المزرعة (هكتار)</label>
+                        <input type="number" class="form-input" placeholder="مثال: 10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">عدد العمال الحالي</label>
+                        <input type="number" class="form-input" placeholder="مثال: 5">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Worker Specific Fields (Hidden by default) -->
+            <div id="workerFields" style="display: none;">
+                <h3 style="color: #2E7D32; margin: 30px 0 20px;">👨‍🌾 معلومات المهنة</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">المجال المهني</label>
+                        <select class="form-select">
+                            <option value="">اختر مجالك</option>
+                            <option value="seasonal-worker">عامل موسمي</option>
+                            <option value="agricultural-engineer">مهندس فلاحي</option>
+                            <option value="veterinarian">طبيب بيطري</option>
+                            <option value="irrigation-tech">فني ري</option>
+                            <option value="tractor-driver">سائق آلات زراعية</option>
+                            <option value="pruning-worker">عامل تقليم وأشجار</option>
+                            <option value="beekeeper">مربي نحل</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">سنوات الخبرة</label>
+                        <select class="form-select">
+                            <option value="">اختر الخبرة</option>
+                            <option value="0-1">أقل من سنة</option>
+                            <option value="1-3">1-3 سنوات</option>
+                            <option value="3-5">3-5 سنوات</option>
+                            <option value="5-10">5-10 سنوات</option>
+                            <option value="10+">أكثر من 10 سنوات</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">المهارات الرئيسية</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> جني الزيتون
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> قيادة جرار
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> تركيب أنظمة ري
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> تقليم أشجار
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> تطعيم النخيل
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; background: #F5F5F5; padding: 8px 15px; border-radius: 25px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px;"> رعاية المواشي
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terms and Conditions -->
+            <div class="terms">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">
+                    أوافق على <a href="#">شروط الاستخدام</a> و <a href="#">سياسة الخصوصية</a>، 
+                    وأتعهد بأن جميع المعلومات المقدمة صحيحة.
+                </label>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="notifications" checked>
+                <label for="notifications">
+                    أرغب في استلام إشعارات حول الفرص الجديدة عبر البريد الإلكتروني والهاتف
+                </label>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 20px; margin-top: 20px;">
+                ✨ إنشاء حساب جديد
+            </button>
+            
+            <!-- Divider -->
+            <div class="divider">
+                <span>أو التسجيل باستخدام</span>
+            </div>
+            
+            <!-- Social Registration -->
+            <div class="social-buttons">
+                <button type="button" class="social-button facebook">
+                    <span>فيسبوك</span>
+                </button>
+                <button type="button" class="social-button google">
+                    <span>جوجل</span>
+                </button>
+            </div>
+            
+            <!-- Login Link -->
+            <p style="text-align: center; margin-top: 25px; color: #757575;">
+                لديك حساب بالفعل؟ 
+                <a href="login.html" style="color: #2E7D32; font-weight: 600; text-decoration: none;">تسجيل الدخول</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">فلاحتي</h3>
+                    <p style="color: #F5F5F5; line-height: 1.8;">أول منصة جزائرية متخصصة في الربط بين أصحاب العمل والباحثين عن فرص في القطاع الفلاحي.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">عن المنصة</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">فيسبوك</a></li>
+                        <li><a href="#">تويتر</a></li>
+                        <li><a href="#">لينكد إن</a></li>
+                        <li><a href="#">إنستغرام</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li>📞 0550 12 34 56</li>
+                        <li>✉️ contact@fellahaty.dz</li>
+                        <li>📍 الجزائر العاصمة</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 فلاحتي - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تبديل بين حقول المزارع والعامل
+        function selectUserType(type) {
+            const farmerOption = document.querySelector('.user-type-option:first-child');
+            const workerOption = document.querySelector('.user-type-option:last-child');
+            const farmerFields = document.getElementById('farmerFields');
+            const workerFields = document.getElementById('workerFields');
+            
+            if (type === 'farmer') {
+                farmerOption.classList.add('active');
+                workerOption.classList.remove('active');
+                farmerFields.style.display = 'block';
+                workerFields.style.display = 'none';
+            } else {
+                workerOption.classList.add('active');
+                farmerOption.classList.remove('active');
+                workerFields.style.display = 'block';
+                farmerFields.style.display = 'none';
+            }
+        }
+        
+        // التحقق من كلمة المرور
+        document.querySelectorAll('input[type="password"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const requirements = document.querySelectorAll('.password-requirements li');
+                const password = document.querySelector('input[type="password"]').value;
+                
+                if (password.length >= 8) {
+                    requirements[0].innerHTML = '✓ 8 أحرف على الأقل';
+                    requirements[0].style.color = '#2E7D32';
+                } else {
+                    requirements[0].innerHTML = '○ 8 أحرف على الأقل';
+                    requirements[0].style.color = '#212121';
+                }
+                
+                if (/[A-Z]/.test(password)) {
+                    requirements[1].innerHTML = '✓ حرف كبير واحد على الأقل';
+                    requirements[1].style.color = '#2E7D32';
+                } else {
+                    requirements[1].innerHTML = '○ حرف كبير واحد على الأقل';
+                    requirements[1].style.color = '#212121';
+                }
+                
+                if (/\d/.test(password)) {
+                    requirements[2].innerHTML = '✓ رقم واحد على الأقل';
+                    requirements[2].style.color = '#2E7D32';
+                } else {
+                    requirements[2].innerHTML = '○ رقم واحد على الأقل';
+                    requirements[2].style.color = '#212121';
+                }
+                
+                if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                    requirements[3].innerHTML = '✓ رمز خاص واحد على الأقل';
+                    requirements[3].style.color = '#2E7D32';
+                } else {
+                    requirements[3].innerHTML = '○ رمز خاص واحد على الأقل';
+                    requirements[3].style.color = '#212121';
+                }
+            });
+        });
+        
+        // التحقق من تطابق كلمة المرور
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.querySelectorAll('input[type="password"]')[0].value;
+            const confirmPassword = document.querySelectorAll('input[type="password"]')[1].value;
+            
+            if (password !== confirmPassword) {
+                alert('كلمة المرور غير متطابقة');
+                return;
+            }
+            
+            alert('تم إنشاء الحساب بنجاح! سيتم توجيهك إلى لوحة التحكم');
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
